@@ -33,3 +33,4 @@ function handleMsg(topic, payload) {
 	  timestamp: timestamp,
 	  [attribute_name]: payload
 	});
+}
