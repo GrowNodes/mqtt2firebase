@@ -29,8 +29,7 @@ function handleMsg(topic, payload) {
 
   const timestamp = Math.floor(Date.now() / 1000);
 
-  fb_db_ref.child(`${node_serial}/log_${sensor_name}`).push({
-	  timestamp: timestamp,
+  fb_db_ref.child(`${node_serial}/log_${sensor_name}/${timestamp}`).push({
 	  [attribute_name]: msg_text
 	});
 }
