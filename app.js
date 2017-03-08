@@ -31,6 +31,6 @@ function handleMsg(topic, payload) {
 
   fb_db_ref.child(`${node_serial}/log_${sensor_name}`).push({
 	  timestamp: timestamp,
-	  [attribute_name]: payload
+	  [attribute_name]: msg_text
 	});
 }
