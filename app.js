@@ -9,7 +9,7 @@ fb_admin.initializeApp({
   databaseURL: "https://grownodes.firebaseio.com"
 });
 
-var fb_db_ref = fb_admin.database().ref("grownodes");
+var fb_db_ref = fb_admin.database().ref("logs");
 
 mqttClient.subscribe('nodes/+/air_sensor/humidity')
 mqttClient.subscribe('nodes/+/air_sensor/temperature')
@@ -29,7 +29,7 @@ function handleMsg(topic, payload) {
 
   const timestamp = Math.floor(Date.now() / 1000);
 
-  fb_db_ref.child(`log_${sensor_name}/${node_serial}/${timestamp}`).update({
+  fb_db_ref.child(`${sensor_name}/${node_serial}/${timestamp}`).update({
 	  [attribute_name]: msg_text
 	});
 }
